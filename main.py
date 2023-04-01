@@ -3,7 +3,7 @@ from models import Donor
 import pickle
 
 
-app = FastAPI()
+app = FastAPI(title= 'Blood Donation Prediction')
 
 # load the scaler
 
@@ -22,7 +22,7 @@ with open('model.pkl', 'rb') as f:
 
 @app.get('/')
 def root():
-    return 'Welcome to blood donation prediction App!'
+    return 'Welcome to blood donation prediction API! Now head over to http://localhost:80/docs to try it out'
 
 @app.post('/predict')
 def predict(donor: Donor):
