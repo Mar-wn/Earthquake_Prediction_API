@@ -29,8 +29,9 @@ def predict(donor: Donor):
 
     donor = donor.transform(min_max_scaler)
 
-    if classifier.predict(donor)[0] == '1':
+    return classifier.predict(donor)[0]
+    #if classifier.predict(donor)[0] == '1':
 
-        return 'This donor will donate blood! Call him'
-    else:
-        return "Unfortunately, this donor won't donate now. Look for another."
+     #   return 'This donor will donate blood! Call him'
+    #else:
+     #   return "Unfortunately, this donor won't donate now. Look for another."
