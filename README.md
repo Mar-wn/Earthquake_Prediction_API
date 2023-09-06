@@ -6,4 +6,4 @@
 
 * It takes as input: months since first donation, months since last donation, number of donations and total blood donated in Liters.
 
-* To use the app, just access [Blood Donation Prediction App]([URL](https://front-m6am.onrender.com)https://front-m6am.onrender.com).
+* To use the app, just access [Blood Donation Prediction App](https://front-m6am.onrender.com).
