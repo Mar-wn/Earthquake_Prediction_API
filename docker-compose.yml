@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  
+  front:
+
+    image: blood_donation_prediction_front
+
+    container_name: front
+
+    ports:
+      - 8501:8501
+    
+    depends_on:
+      - api
+
+  api:
+
+    image: blood_donation_prediction_api
+
+    container_name: api
+   
+    ports:
+      - 8000:80
+ 
+   

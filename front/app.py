@@ -1,9 +1,9 @@
 import streamlit as st
 import requests
 
+
 st.title('Blood Donation prediction')
 
-#prediction inputs form
 
 features_form = st.form(key= 'features_form')
 
@@ -30,9 +30,10 @@ total_blood_donated = features_form.number_input('Total blood donated(in Liters)
                          step= 0.1,
                          format= '%.3f')
 
+
 if features_form.form_submit_button('predict'):
 
-    url = 'http://localhost:8080/predict'
+    url = 'https://api-izmj.onrender.com/predict' #to replace with service name when its possible to have a private network for services
 
     data = {
                 "months_since_first": months_since_first,
@@ -44,24 +45,17 @@ if features_form.form_submit_button('predict'):
     response = requests.post(url, json= data)
 
     if response.status_code == 200:
-        
-        st.write(response.text)
+
+        if response.text.replace('"', '') == '1':
+
+            st.write("That's a donor! You should call him now!")
+
+        else:
+
+            st.write("This person is unlikely to donate blood now, please proceed to the next prospects.")
 
     else:
 
         st.write('Prediction error: {}'.format(response.text))
-
-    #if classifier.predict(donor)[0] == '1':
-
-     #   col1, col2 = st.columns([10,10])
-      #  with col1:
-       #     st.write("That's a donor! You should call him now!", use_column_width=True)
-        #with col2:
-         #   st.image("cat.png", width= 20)
-
-    #else:
-
-       # st.write("This person is unlikely to donate blood now, please proceed to the next prospects.")
-        
 
        
